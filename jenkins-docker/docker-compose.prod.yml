@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  jenkins:
+    environment:
+      - ENVIRONMENT=production
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
