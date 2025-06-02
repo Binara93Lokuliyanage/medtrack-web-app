@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NODEJS_HOME = tool name: 'NodeJS 24', type: 'NodeJSInstallation'
+        NODEJS_HOME = tool name: 'NodeJS', type: 'NodeJSInstallation'
         PATH = "${NODEJS_HOME}/bin:${env.PATH}"
         SONARQUBE = 'SonarQube'
         DOCKER_IMAGE = 'medtrack-web'
@@ -12,6 +12,13 @@ pipeline {
         stage('Checkout') {
             steps {
                 git url: 'https://github.com/Binara93Lokuliyanage/medtrack-web-app.git', branch: 'main'
+            }
+        }
+
+        stage('Verify NodeJS') {
+            steps {
+                sh 'node -v'
+                sh 'npm -v'
             }
         }
 
