@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        NODEJS_HOME = tool name: 'NodeJS', type: 'NodeJS installations'
+        NODEJS_HOME = tool name: 'NodeJS', type: 'NodeJSInstallation'
         PATH = "${NODEJS_HOME}/bin:${env.PATH}"
         SONARQUBE = 'SonarQube'
         DOCKER_IMAGE = 'medtrack-web'
